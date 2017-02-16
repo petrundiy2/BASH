@@ -1,14 +1,16 @@
 #!/bin/bash
-$argu1=tar
-$argu2=d
-for myfile in /etc/*
-	do
-	if [ "${myfile##*.}" = "$argu1" ]
+k=0
+for myfile in ./*
+    do
+	if [ "${myfile##*.}" = "$1" ]
 	then
-       		$myfile=${myfile%.*}+"."
-		$myfile=$myfile+$argu2
-		echo "$myfile"
+       	    mv $myfile ${myfile%.*}.$2
+	    k=$k+1
 	else
-       		echo "No"
+       		echo "$myfile"
 	fi
 done
+if [ $k = 0 ]
+then
+	echo "net takih failov!"
+fi
