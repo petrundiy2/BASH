@@ -1,0 +1,28 @@
+#include <iostream>
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+
+int main() {
+    srand(time(NULL));
+    int A=0;
+    int B=10;
+
+    double x,y;
+    int M=0;
+    int N=10000000;
+    for (int i=0; i<N;i++) {
+        x = ( 10.0f * rand() ) / RAND_MAX;
+        y = ( 10.0f * rand() ) / RAND_MAX;
+        if (((x-5)*(x-5)+y*y)<25) {
+            M+=1;
+        }
+    }
+    double J = (double)M/(double)N;
+    double pi = J*8;
+    cout << (pi) << endl;
+
+    return 0;
+}
